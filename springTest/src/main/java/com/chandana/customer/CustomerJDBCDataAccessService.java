@@ -24,7 +24,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
     public List<Customer> selectAllCustomers() {
         var sql = """
                SELECT id,name,email,age
-                FROM customer
+                FROM customer;
                """;
 
         //  Row mapper created using lambda expression is also possible like below.   
@@ -151,5 +151,7 @@ public Optional<Customer> selectCustomerById(Integer id) {
             System.out.println("update customer email result = "+result);
         }
     }
+
+    
 
 }

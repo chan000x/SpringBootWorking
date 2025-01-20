@@ -31,7 +31,7 @@ public  class Customer{
         strategy = GenerationType.SEQUENCE,
         generator = "customer_id_seq"
     )
-    private Long id;  // id set to primary key and it is value start from 1 to bigint.
+    private Integer id;  // id set to primary key and it is value start from 1 to bigint.
 
     @Column(
         nullable = false  // this will add constrains to the when connecting to the database postgres.
@@ -63,13 +63,13 @@ public  class Customer{
     }
 
 
-    public Customer(Long id, String name, String email, Integer age) {
+    public Customer(Integer id, String name, String email, Integer age) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.age = age;
     }
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public void setName(String name) {
@@ -81,7 +81,7 @@ public  class Customer{
     public void setAge(Integer age) {
         this.age = age;
     }
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
     public String getName() {

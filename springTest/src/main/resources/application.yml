@@ -17,7 +17,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate # validte that flyway created scheamas are correct. If not error get.
+      ddl-auto: none # validte that flyway created scheamas are correct. If not error get.
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
