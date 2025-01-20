@@ -3,7 +3,6 @@ package com.chandana.customer;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
