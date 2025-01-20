@@ -1,0 +1,66 @@
+To running dockers : docker ps
+
+To enter postgres comman interface : docker exec -it postgres bash
+
+To login to account as a default postgres user : psql -U postgres #(account name)
+
+To quit the user account account and come to root user: \q
+
+To completely exit from postgres : ctrl + d
+
+To list all the databases on the logged user : \l
+
+To check which user logged : SELECT  current_user; 
+
+To create a new database : CREATE DATABASE mydatabase;
+
+To connect to the database newly created : \c mydatabase
+
+To create a new role instead of default postgres : CREATE ROLE chandana WITH LOGIN PASSWORD 'yourpassword';
+
+To grant previleges to role : ALTER ROLE chandana CREATEDB;
+
+To view the all the previleges : \du
+
+To log in different role : psql -U chandana
+
+To assign a default databse to a role : CREATE DATABASE chandana_db OWNER chandana;
+
+To connect to new database : psql -U chandana -d chandana_db
+
+To restart docker : docker restart <container_name>
+
+To check running containers in powershel : docker ps
+
+Enter PostgreSQL Shell insde the container : docker exec -it <container_name> psql -U postgres
+
+Restart PostgreSQL Container : docker restart <container_name>
+
+To access to a database : psql -U <username> -d <database_name>
+
+List the all the databases : \l 
+
+To access a specific database use the : \c 
+
+To see the all the tables in database : \dt 
+
+To list tables along with system tables : \dt *
+
+To view the structure of a specific table : \d <tables_name>
+
+To view all relations : \d 
+
+To list tables : SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
+
+To describe table columns :  SELECT column_name, data_type, is_nullable 
+                             FROM information_schema.columns 
+                             WHERE table_name = '<table_name>';
+
+To delete a table in PostgreSQL : DROP TABLE table_name;
+
+If the table does not exist you can avoid errors : DROP TABLE IF EXISTS customers;
+
+To drop table with constrains : DROP TABLE customers CASCADE;
+
+
+

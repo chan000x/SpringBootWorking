@@ -1,0 +1,2 @@
+to look at the internal code of imported class file press and hold ctrl and click the class file.
+
