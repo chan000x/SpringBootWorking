@@ -8,8 +8,12 @@ import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
+
 import com.chandana.AbstractTestcontainers;
 
+//@DataJdbcTest // Auto load the all the beans that neede to run our test case of JDBC Template.
+// But we do not need this. We can load neccessary beans by our selves.
 public class CustomerJDBCDataAccessServiceTest extends AbstractTestcontainers{
 
     private CustomerJDBCDataAccessService underTest;

@@ -1,3 +1,7 @@
+To stop the database(docker) : docker stop postgres
+
+To start the database(docker) : docker start postgres
+
 To running dockers : docker ps
 
 To enter postgres comman interface : docker exec -it postgres bash

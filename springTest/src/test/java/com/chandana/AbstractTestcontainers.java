@@ -32,6 +32,7 @@ public abstract class AbstractTestcontainers {
     }
 
 
+    @SuppressWarnings("resource")
     @Container
     protected static final PostgreSQLContainer<?> postgreSQLContainer =
           new PostgreSQLContainer<>("postgres:latest")
