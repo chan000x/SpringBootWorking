@@ -1,5 +1,7 @@
 package com.chandana.customer;
 
+import java.util.Objects;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -108,39 +110,19 @@ public  class Customer{
         result = prime * result + ((age == null) ? 0 : age.hashCode());
         return result;
     }
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Customer other = (Customer) obj;
-        if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
-            return false;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        if (email == null) {
-            if (other.email != null)
-                return false;
-        } else if (!email.equals(other.email))
-            return false;
-        if (age == null) {
-            if (other.age != null)
-                return false;
-        } else if (!age.equals(other.age))
-            return false;
+@Override
+public boolean equals(Object obj) {
+    if (this == obj)
         return true;
-    }
+    if (obj == null || getClass() != obj.getClass())
+        return false;
+    Customer other = (Customer) obj;
+    return Objects.equals(id, other.id) &&
+           Objects.equals(name, other.name) &&
+           Objects.equals(email, other.email) &&
+           Objects.equals(age, other.age);
+}
+
     private Customer getEnclosingInstance() {
         return Customer.this;
     }
