@@ -6,13 +6,28 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 34221719
       POSTGRES_DB: customers # Create the customers database on container startup
-      PGDATA: /data/postgres
+      PGDATA: /data/postgres # Path for the database files
     volumes:
-      - db:/data/postgres
+      - db:/data/postgres # Persistent volume to store data
     ports:
-      - "5332:5432"
+      - "5332:5432" # Expose the database port for external access
     networks:
       - db
+    restart: unless-stopped
+
+  chandana-api:
+    container_name: uploadsecondapp # Just the container name, no tag
+    image: chan000x/uploadsecondapp:latest
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/customers # Use this for Spring to connect to the db service
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 34221719
+    ports:
+      - "8088:8080" # Expose the API port for external access
+    networks:
+      - db
+    depends_on:
+      - db # Ensures the db service starts before the API service
     restart: unless-stopped
 
 networks:
@@ -21,3 +36,4 @@ networks:
 
 volumes:
   db:
+    driver: local # Optional, as the default is local

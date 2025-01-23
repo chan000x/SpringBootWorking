@@ -1,0 +1,39 @@
+to authenticate the CLI(login to mu docker hub) : docker login
+
+To create image package :
+        mvn clean package `
+            -Djib.to.image=myregistry/myimage:latest `
+            -Djib.to.auth.username=chan000x `
+            -Djib.to.auth.password=141WM@cp
+
+
+
+To build & push to docker hub : mvn clean package jib:build
+
+For local docker build without pushing : mcn package jib:dockerBuild
+
+To push manually(repository names must in simple word) : docker push chan000x/repositoryname:1.0.0  
+
+To verify the image is pushed successfully(locally created ones) : docker images
+
+To upload docker image in local images tagged as 'chan000x/uploadsecondapp:latest' to docker hub repository : 
+
+After successful push the image available on 'https://hub.docker.com/repository/docker/chan000x/uploadsecondapp'
+
+To remove any local docker images : docker rmi postgres:14-alpine
+                                    docker rmi nginx:latest
+                                    docker rmi postgres:latest
+
+To list the available networks : docker network ls 
+
+To run a docker : docker run --name uploadsecondapp --rm -p 8080:8080 --network springboot_db chan000x/uploadsecondapp:latest  --spring.datasource.url=jdbc:postgresql://db:5432/customers
+
+To run the all the dockers in the docker-compose.yml file : docker compose up -d 
+
+To shut down all the docker containers and remove them: docker compose down 
+
+To stop docker compose : docker compose stop 
+
+To start docker compose : docker compose start 
+
+
